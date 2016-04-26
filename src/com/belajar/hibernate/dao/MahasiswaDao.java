@@ -16,7 +16,12 @@ import java.util.List;
 public interface MahasiswaDao {
 
     public List<Mahasiswa> getMahasiswas();
+
     public void SimpanMahsiswa(Mahasiswa m);
-    
+
     public void updateMahasiswa(Mahasiswa mahasiswa);
+
+    public void hapusMahasiswa(Mahasiswa m);
+
+    public Mahasiswa getMahasiswa(String npm);
 }

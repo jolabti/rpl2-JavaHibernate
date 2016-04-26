@@ -69,6 +69,23 @@ public class MahasiswaController {
         tampilMahasiswa();
 
     }
+    
+    public void deleteMahasiswa(){
+         
+        String npm= this.mahasiswaView.getNpm().getText();
+        
+        Mahasiswa m = mahasiswaDao.getMahasiswa(npm);
+        
+        if (m!=null)
+        {
+            mahasiswaDao.hapusMahasiswa(m);
+            tampilMahasiswa();
+        }
+       
+        
+        tampilMahasiswa();
+    
+    }
 
     public void clearForm() {
 

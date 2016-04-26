@@ -80,4 +80,50 @@ public class MahasiswaDaoImpl implements MahasiswaDao {
 
     }
 
+    @Override
+    public void hapusMahasiswa(Mahasiswa m) {
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Session session = sessionFactory.openSession();
+        try {
+
+            session.beginTransaction();
+            session.delete(m);
+
+            session.getTransaction().commit();
+            //return m;
+
+        } catch (HibernateException e) {
+
+            session.getTransaction().rollback();
+            //return null;
+        } finally {
+
+            session.close();
+        }
+
+    }
+
+    @Override
+    public Mahasiswa getMahasiswa(String npm) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Session s = sessionFactory.openSession();
+        try {
+
+            s.beginTransaction();
+            Mahasiswa m = (Mahasiswa) s.get(Mahasiswa.class, npm);
+            s.getTransaction().commit();
+            return m;
+
+        } catch (HibernateException e) {
+
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+
+            s.close();
+        }
+    }
+
 }

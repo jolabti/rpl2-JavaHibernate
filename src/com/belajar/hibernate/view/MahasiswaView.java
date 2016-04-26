@@ -69,6 +69,11 @@ public class MahasiswaView extends javax.swing.JFrame {
         });
 
         delete.setText("delete");
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+        });
 
         tabelMahasiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,6 +192,10 @@ public class MahasiswaView extends javax.swing.JFrame {
 
         mahasiswaController.clearForm();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
+        mahasiswaController.deleteMahasiswa();
+    }//GEN-LAST:event_deleteMouseClicked
 
     /**
      * @param args the command line arguments
